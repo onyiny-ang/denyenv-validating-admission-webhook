@@ -33,7 +33,7 @@ output:
 Error from server (NotFound): namespaces "does-not-exist" not found
 ```
 
-With a basic understanding of how admission controllers work it's time to take a look at the newest admission controller, the [validating admission webhook](https://kubernetes.io/docs/admin/admission-controllers/#validatingadmissionwebhook-alpha-in-18-beta-in-19). As it names implies, the validating admission webhook allows you to intercept and validate requests to the Kubernetes API using an external webhook, but not mutate them. That last point is critical; because validating admission webhooks can't mutate resources it's safe to run them in parallel, and quickly reject a request if any of the webhooks fail.
+With a basic understanding of how admission controllers work it's time to take a look at the newest admission controller, the [validating admission webhook](https://kubernetes.io/docs/admin/admission-controllers/#validatingadmissionwebhook-alpha-in-18-beta-in-19). As its name implies, the validating admission webhook allows you to intercept and validate requests to the Kubernetes API using an external webhook, but not mutate them. That last point is critical; because validating admission webhooks can't mutate resources it's safe to run them in parallel, and quickly reject a request if any of the webhooks fail.
 
 Before you can use them you'll need access to a Kubernetes cluster.
 
@@ -251,9 +251,9 @@ NAME                   READY     STATUS    RESTARTS   AGE
 nginx-8586cf59-qmdm4   1/1       Running   0          1m
 ```
 
-Its not there. What's going on?
+It's not there. What's going on?
 
-The best way to determine why the `nginx-with-env` pod is not running is to review the Kubernetes event stream: 
+The best way to determine why the `nginx-with-env` pod is not running is to review the Kubernetes event stream:
 
 ```
 kubectl get events
@@ -279,4 +279,4 @@ D      denyenv  s1ij4wfykerr  2018-02-09 02:09:31.461  Function execution took 8
 
 ## Conclusion
 
-Validating admission webhooks are one of easiest ways of extending Kubernetes with new policy controls. Building and running admission webhooks using a FaaS platform can help streamline the development process, and make it easy to enforce policy across multiple Kubernetes clusters using a single function.
+Validating admission webhooks are one of the easiest ways of extending Kubernetes with new policy controls. Building and running admission webhooks using a FaaS platform can help streamline the development process, and make it easy to enforce policy across multiple Kubernetes clusters using a single function.
