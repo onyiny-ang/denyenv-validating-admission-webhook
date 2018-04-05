@@ -35,11 +35,9 @@ Error from server (NotFound): namespaces "does-not-exist" not found
 
 With a basic understanding of how admission controllers work it's time to take a look at the newest admission controller, the [validating admission webhook](https://kubernetes.io/docs/admin/admission-controllers/#validatingadmissionwebhook-alpha-in-18-beta-in-19). As its name implies, the validating admission webhook allows you to intercept and validate requests to the Kubernetes API using an external webhook, but not mutate them. That last point is critical; because validating admission webhooks can't mutate resources it's safe to run them in parallel, and quickly reject a request if any of the webhooks fail.
 
-Before you can use them you'll need access to a Kubernetes cluster.
+Before you can use validating admission webhooks you need access to a Kubernetes cluster.
 
 ## Kubernetes the Easy Way
-
-Before you can use validating admission webhooks you need access to a Kubernetes cluster.
 
 There are many ways to provision a Kubernetes cluster, but I'm going to assume you want me to tell you exactly what to do so we can get back to building a validating admission webhook. This is where I point you to [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine) and swear it's not a vendor pitch. While I'm recommending GKE, everything should work on [minikube](https://kubernetes.io/docs/getting-started-guides/minikube) or [Docker support for Kubernetes](https://www.docker.com/kubernetes).
 
