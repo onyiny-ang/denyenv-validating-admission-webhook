@@ -157,7 +157,7 @@ apiVersion: admissionregistration.k8s.io/v1beta1
 kind: ValidatingWebhookConfiguration
 metadata:
   name: denyenv
-webHooks:
+webhooks:
   - name: denyenv.hightowerlabs.com
     rules:
       - apiGroups:
